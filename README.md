@@ -16,3 +16,18 @@ bool checkBignumDivisible(std::string bignum, int divisor) {
 	return (mod == 0);
 }
 ```
+
+Distance beetween 2 points squared (less expensive)
+```c++
+#include <cmath>
+
+struct Point {
+	int X, Y Z;
+	
+	Point(int x=0, int y=0, int z=0) : X(x), Y(y), Z(z) {};
+}
+
+double distanceBeetwen2PointsSquared(Point* p1, Point* p2) {
+	return pow((p2->X - p1->X), 2) + pow((p2->Y - p1->Y), 2) + pow((p2->Z - p1->Z), 2)
+}
+```
