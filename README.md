@@ -32,6 +32,45 @@ double distanceBeetwen2PointsSquared(Point* p1, Point* p2) {
 }
 ```
 
+Split string into slices
+```c
+#include <string.h>
+
+typedef struct {
+	const char *offset;
+	size_t len;
+} slice;
+
+//
+// text:   the string to be split
+// c:      the delimiter char
+// slices: an array of slices
+// count:  the length of the slices array
+//
+// returns: the number of slices created
+//
+size_t split_text(const char *text, char c, slice *slices, size_t count) {
+	size_t cur_slice = 0;
+
+	const char *offset = text, *chop;
+	do {
+		if (cur_slice == count)
+    			break;
+    
+		chop = strchr(offset, c);
+
+		slices[cur_slice++] = (slice){ 
+			.offset = offset, 
+			.len = chop ? chop - offset : strlen(offset)
+		};
+
+		offset = chop + 1;
+	} while (chop);
+
+	return cur_slice;
+}
+```
+
 Sort an array of any type in ascending order
 ```c
 #include <stdlib.h>
