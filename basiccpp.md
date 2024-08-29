@@ -32,3 +32,12 @@ int main(){
 		default:
 	}
 ```
+
+### pair
+par de 2 coisa
+
+`pair<int,float> nome(1,2.5);`
+
+nome.first == 1
+
+nome.second == 2
