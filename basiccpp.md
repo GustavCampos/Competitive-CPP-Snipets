@@ -41,3 +41,16 @@ par de 2 coisa
 nome.first == 1
 
 nome.second == 2
+
+
+### Swap template
+```cpp
+template<typename T>
+void Swap(T &a, T&b)
+{
+    T temp = a;
+    a = b;
+    b = temp; 
+}
+int main(){return 0;}
+```
