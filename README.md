@@ -130,3 +130,34 @@ int main() {
 	return 0;
 }
 ```
+
+## Graphs Snippets
+
+Get minimal number of steps beetwen two nodes of a non weighted graph
+```cpp
+int bfs_min_steps(
+    const unordered_map<string, vector<string>>& graph,
+    const string& start,
+    const string& target
+) {
+    if (start == target) return 0;
+
+    unordered_set<string> visited = {start};
+    queue<pair<string, int>> q({{start, 0}});
+
+    while (!q.empty()) {
+        auto [current, steps] = q.front();
+        q.pop();
+
+        for (const auto& neighbor : graph.at(current)) {
+            if (visited.insert(neighbor).second) {
+                if (neighbor == target) return steps + 1;
+                
+                q.emplace(neighbor, steps + 1);
+            }
+        }
+    }
+
+    return -1;
+}
+```
